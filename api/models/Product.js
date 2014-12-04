@@ -17,7 +17,7 @@ module.exports = {
       enum:       ["computers", "phones", "servers"],
       required:   true
     },
-    description:    'sting',
+    description:    'string',
     price:          {
       type:         'float',
       required:     true,
@@ -27,6 +27,12 @@ module.exports = {
       type: 'integer',
       defaultsTo: 0
     }
+  },
+
+  beforeValidate: function(values, cb) {
+    sails.log(values);
+    values.category = values.category.toLowerCase();
+    cb();
   }
 };
 
