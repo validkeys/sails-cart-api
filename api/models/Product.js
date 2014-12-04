@@ -30,7 +30,7 @@ module.exports = {
   },
 
   beforeValidate: function(values, cb) {
-    sails.log(values);
+    // Ensure the the category is lower case
     values.category = values.category.toLowerCase();
     cb();
   }
